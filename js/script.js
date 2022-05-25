@@ -34,6 +34,9 @@ var myApp = new Vue ({
             }
         ]
     },
+    created(){
+        this.myTime();
+    },
     methods: {
         // forma intera
         // nextSlide function () {}
@@ -53,8 +56,13 @@ var myApp = new Vue ({
             }
             console.log(this.activeSlide);
         },
-        clickSlide(){
-            this.activeSlide = this.slide;
+        clickSlide(i){
+            this.activeSlide = i;
+        },
+        myTime(){
+            setInterval(() => {
+                this.nextSlide();
+            }, 5000);
         }
     }
 

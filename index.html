@@ -38,7 +38,7 @@
                     class="thumb" 
                     :class="i === activeSlide ? 'active' : '' "
                     :key="i">
-                        <img @click="clickSlide" :src="slide.image" :alt="slide.title"/>
+                        <img @click="clickSlide(i)" :src="slide.image" :alt="slide.title"/>
                     </div>
 
 
