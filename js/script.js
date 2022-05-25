@@ -52,6 +52,9 @@ var myApp = new Vue ({
                 this.activeSlide = this.slides.length - 1;
             }
             console.log(this.activeSlide);
+        },
+        clickSlide(){
+            this.activeSlide = this.slide;
         }
     }
 
