@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Carosello News</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Slider</title>
+</head>
+<body>
+
+    <div id="app">
+
+        <div class="container" >
+            <div class="slider-wrapper" tabindex="0">
+
+                <div class="item">
+                    <!-- associamo al tag img gli attributi src e alt tramite i binds e gli facciamo corrispondere i giusti testi ed immagini tramite la proprietà activeSlide -->
+                    <img :src="slides[activeSlide].image" :alt="slides[activeSlide].title" />
+                    <div class="text">
+                        <h3>{{slides[activeSlide].title}}</h3>
+                        <p>
+                            {{slides[activeSlide].text}}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="thumbs">
+
+                    <div class="prev" @click="prevSlide"></div>
+
+                    <div class="next" @click="nextSlide"></div>
+
+                    <!-- associamo il v-for all'html per avere un ciclo for che andrà a printare in pagina ogni volta un div nuovo con caratteristiche diverse che variano grazie al valore iesimo -->
+                    <div v-for="(slide, i) in slides" 
+                    class="thumb" 
+                    :class="i === activeSlide ? 'active' : '' "
+                    :key="i">
+                        <img :src="slide.image" :alt="slide.title"/>
+                    </div>
+
+
+                    <!-- <div class="thumb">
+                        <img src="img/02.jpg" alt="Svizzera" />
+                    </div>
+                    <div class="thumb">
+                        <img src="img/03.jpg" alt="Gran Bretagna" />
+                    </div>
+                    <div class="thumb">
+                        <img src="img/04.jpg" alt="Germania" />
+                    </div>
+                    <div class="thumb">
+                        <img src="img/05.jpg" alt="Paradise" />
+                    </div> -->
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
