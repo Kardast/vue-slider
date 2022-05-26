@@ -14,11 +14,11 @@
     <div id="app">
 
         <div class="container" >
-            <div class="slider-wrapper" tabindex="0">
+            <div @mouseover="myStop" @mouseleave="myStart" @keyup.down="nextSlide" @keyup.up="prevSlide" class="slider-wrapper" tabindex="0">
 
                 <div class="item">
                     <!-- associamo al tag img gli attributi src e alt tramite i binds e gli facciamo corrispondere i giusti testi ed immagini tramite la proprietà activeSlide -->
-                    <img :src="slides[activeSlide].image" :alt="slides[activeSlide].title" />
+                    <img  :src="slides[activeSlide].image" :alt="slides[activeSlide].title" />
                     <div class="text">
                         <h3>{{slides[activeSlide].title}}</h3>
                         <p>

@@ -6,6 +6,7 @@ var myApp = new Vue ({
     // qui invece mettiamo i nostri dati
     data: {
         activeSlide: 0,
+        myDuck: "",
         slides: [
             {
                 image: 'img/01.jpg',
@@ -34,8 +35,10 @@ var myApp = new Vue ({
             }
         ]
     },
+    
+    // il created esegue quello che è nelle graffe quando finisce di creare l'istanza della pagina 
     created(){
-        this.myTime();
+        this.myDuck = setInterval(this.nextSlide, 1000)
     },
     methods: {
         // forma intera
@@ -56,14 +59,15 @@ var myApp = new Vue ({
             }
             console.log(this.activeSlide);
         },
-        clickSlide(i){
-            this.activeSlide = i;
+        clickSlide(index){
+            this.activeSlide = index;
         },
-        myTime(){
-            setInterval(() => {
-                this.nextSlide();
-            }, 5000);
+        myStart(){
+            this.myDuck = setInterval(this.nextSlide, 1000)
+        },
+        myStop(){
+            clearInterval(this.myDuck);
+            console.log(this.myStop);
         }
     }
-
 });
